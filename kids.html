@@ -3,80 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kids Raincoat</title>
+    <title>Kids Collection</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
       <nav>
         <a href="index.html">Home</a>
-        <a href="raincoat.html">Raincoats</a>
+        <a href="raincoat.html">Mens</a>
+        <a href="ladies.html">Womens</a>
         <a href="punchos.html">Punchos</a>
+        <a href="kids.html">Kids</a>
         <a href="umbrellas.html">Umbrellas</a>
         <a href="jerkins.html">Jerkins</a>
-        <a href="ladies.html">Ladies</a>
-        <!-- <a href="kids.html">Kids</a> -->
       </nav>
     </header>
 
     <main>
       <h2>Kids Raincoat</h2>
-      <section class="product-section">
-        <div class="card">
-          <img src="images/zeeljs508.png" alt="Raincoat 1" />
-          <h3>Raincoat 1</h3>
-          <p>Price: $29.99</p>
-        </div>
-        <div class="card">
-          <img src="images/zeeljs508.png" alt="Raincoat 1" />
-          <h3>Raincoat 1</h3>
-          <p>Price: $29.99</p>
-        </div>
-        <div class="card">
-          <img src="images/zeeljs508.png" alt="Raincoat 1" />
-          <h3>Raincoat 1</h3>
-          <p>Price: $29.99</p>
-        </div>
-        <div class="card">
-          <img src="images/zeeljs508.png" alt="Raincoat 1" />
-          <h3>Raincoat 1</h3>
-          <p>Price: $29.99</p>
-        </div>
-        <div class="card">
-          <img src="images/zeeljs508.png" alt="Raincoat 1" />
-          <h3>Raincoat 1</h3>
-          <p>Price: $29.99</p>
-        </div>
-        <div class="card">
-          <img src="images/zeeljs508.png" alt="Raincoat 1" />
-          <h3>Raincoat 1</h3>
-          <p>Price: $29.99</p>
-        </div>
-        <div class="card">
-          <img src="images/zeeljs508.png" alt="Raincoat 1" />
-          <h3>Raincoat 1</h3>
-          <p>Price: $29.99</p>
-        </div>
-        <div class="card">
-          <img src="images/zeeljs508.png" alt="Raincoat 1" />
-          <h3>Raincoat 1</h3>
-          <p>Price: $29.99</p>
-        </div>
-        <div class="card">
-          <img src="images/zeeljs508.png" alt="Raincoat 1" />
-          <h3>Raincoat 1</h3>
-          <p>Price: $29.99</p>
-        </div>
-        <div class="card">
-          <img src="images/zeeljs508.png" alt="Raincoat 1" />
-          <h3>Raincoat 1</h3>
-          <p>Price: $29.99</p>
-        </div>
-      </section>
+      <div class="container">
+        <div class="card-container"></div>
+        <div class="pagination"></div>
+      </div>
     </main>
 
     <footer>
       <h3>Phone : 0000000000 / 99999999999</h3>
     </footer>
+
+    <script>
+      // Define your product data as an array of objects
+      const products = [
+        { name: 'Raincoat 1', price: 29.99, imageUrl: 'images/zeeljs508.png' },
+        { name: 'Raincoat 1', price: 29.99, imageUrl: 'images/zeeljs508.png' },
+        // Add more product objects here
+      ];
+
+      // Get the card container element
+      const cardContainer = document.querySelector('.card-container');
+
+      // Loop through the products and create card elements
+      products.forEach(product => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        const img = document.createElement('img');
+        img.src = product.imageUrl;
+        img.alt = product.name;
+
+        const h3 = document.createElement('h3');
+        h3.textContent = product.name;
+
+        const p = document.createElement('p');
+        p.textContent = `Price: $${product.price}`;
+
+        card.appendChild(img);
+        card.appendChild(h3);
+        card.appendChild(p);
+
+        cardContainer.appendChild(card);
+      });
+    </script>
   </body>
 </html>
