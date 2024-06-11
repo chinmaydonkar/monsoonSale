@@ -34,8 +34,36 @@
     <script>
       // Define your product data as an array of objects
       const products = [
-        { name: "Raincoat 1", price: 29.99, imageUrl: "images/zeeljs508.png" },
-        { name: "Raincoat 1", price: 29.99, imageUrl: "images/zeeljs508.png" },
+        { name: "Boss Trans", price: 555, imageUrl: "images/bossT.png" },
+        { name: "Duckback 729", price: 1015, imageUrl: "images/d729.png" },
+        { name: "Duckback 676", price: 819, imageUrl: "images/db676.png" },
+        {
+          name: "Duckback Diplomat",
+          price: 1589,
+          imageUrl: "images/diplomat.png",
+        },
+        { name: "Real Ezone", price: 1565, imageUrl: "images/ezone.png" },
+        { name: "Zeel JS201", price: 1289, imageUrl: "images/js201.png" },
+        { name: "Zeel JS201spl", price: 1450, imageUrl: "images/js201spl.png" },
+        { name: "Zeel JS301", price: 1570, imageUrl: "images/js301.png" },
+        { name: "Zeel JS508", price: 1699, imageUrl: "images/js508.png" },
+        { name: "Zeel Rainfighter111", price: 509, imageUrl: "images/rf.png" },
+        {
+          name: "Zeel Waterfighter1021",
+          price: 749,
+          imageUrl: "images/wf1021.png",
+        },
+        {
+          name: "Zeel Waterfighter253",
+          price: 1190,
+          imageUrl: "images/wf253.png",
+        },
+        {
+          name: "Zeel Waterfighter451",
+          price: 1299,
+          imageUrl: "images/wf451.png",
+        },
+        { name: "Zeel Ze101", price: 1279, imageUrl: "images/ze.png" },
         // Add more product objects here
       ];
 
@@ -55,7 +83,7 @@
         h3.textContent = product.name;
 
         const p = document.createElement("p");
-        p.textContent = `Price: $${product.price}`;
+        p.textContent = `MRP: ${product.price}`;
 
         card.appendChild(img);
         card.appendChild(h3);
