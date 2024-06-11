@@ -10,7 +10,7 @@
     <header>
       <h1>Shree Shetkari Seva Kapad Dukan</h1>
       <div class="banner">
-        <span class="animated">Monsoon Sale</span>
+        <span class="animated">Zeel | DuckBack | Boss | Real | TopInTown | OnlyOne</span>
       </div>
     </header>
 
@@ -58,12 +58,18 @@
         </div>
       </section>
     </main>
-ls
     <footer>
       <p>Address: Tilak Path, Gadhinglaj.</p>
-      <p>Phone: 9423279564 / 9028479164 </p>
+      <p>Phone: 9423279564 / 9028479164</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      function animateBanner() {
+        const banner = document.querySelector(".animated");
+        banner.style.opacity = banner.style.opacity === "0" ? "1" : "0";
+      }
+
+      setInterval(animateBanner, 500);
+    </script>
   </body>
 </html>

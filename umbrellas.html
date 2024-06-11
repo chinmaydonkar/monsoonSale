@@ -34,35 +34,140 @@
     <script>
       // Define your product data as an array of objects
       const products = [
-        { name: "Raincoat 1", price: 29.99, imageUrl: "images/zeeljs508.png" },
-        { name: "Raincoat 1", price: 29.99, imageUrl: "images/zeeljs508.png" },
+        {
+          name: "2Fold",
+          price: "200-500",
+          imageUrl: "images/u1.png",
+        },
+        {
+          name: "Jumbo",
+          price: "300-500",
+          imageUrl: "images/u2.png",
+        },
+        {
+          name: "Black",
+          price: "200-500",
+          imageUrl: "images/u3.png",
+        },
+        {
+          name: "MonoColor",
+          price: "200-500",
+          imageUrl: "images/u4.png",
+        },
+        {
+          name: "Kids",
+          price: "200-500",
+          imageUrl: "images/u5.png",
+        },
+        {
+          name: "Printed",
+          price: "200-500",
+          imageUrl: "images/u6.png",
+        },
+        {
+          name: "Rainbow",
+          price: "200-500",
+          imageUrl: "images/u7.png",
+        },
+        {
+          name: "Printed",
+          price: "200-500",
+          imageUrl: "images/u9.png",
+        },
         // Add more product objects here
       ];
 
       // Get the card container element
       const cardContainer = document.querySelector(".card-container");
 
-      // Loop through the products and create card elements
-      products.forEach((product) => {
-        const card = document.createElement("div");
-        card.classList.add("card");
+      // Get the pagination container element
+      const paginationContainer = document.querySelector(".pagination");
 
-        const img = document.createElement("img");
-        img.src = product.imageUrl;
-        img.alt = product.name;
+      // Set the number of items to display per page
+      const itemsPerPage = 10;
 
-        const h3 = document.createElement("h3");
-        h3.textContent = product.name;
+      // Function to render the cards for a given page
+      function renderCards(page) {
+        // Clear the card container
+        cardContainer.innerHTML = "";
 
-        const p = document.createElement("p");
-        p.textContent = `Price: $${product.price}`;
+        // Calculate the start and end indices for the current page
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
 
-        card.appendChild(img);
-        card.appendChild(h3);
-        card.appendChild(p);
+        // Loop through the products for the current page and create card elements
+        for (let i = startIndex; i < endIndex && i < products.length; i++) {
+          const product = products[i];
+          const card = document.createElement("div");
+          card.classList.add("card");
 
-        cardContainer.appendChild(card);
-      });
+          const img = document.createElement("img");
+          img.src = product.imageUrl;
+          img.alt = product.name;
+
+          const h3 = document.createElement("h3");
+          h3.textContent = product.name;
+
+          const p = document.createElement("p");
+          p.textContent = `MRP: ${product.price}`;
+          p.style.backgroundColor = "blue"; // Set background color to blue
+          p.style.color = "white"; // Set text color to white for better contrast
+          p.style.padding = "5px "; // Add some padding
+          p.style.border = "none"; // Remove default button border
+          p.style.borderRadius = "4px"; // Add rounded corners
+          p.style.cursor = "pointer"; // Change cursor to a pointer on hover
+
+          card.appendChild(img);
+          card.appendChild(h3);
+          card.appendChild(p);
+
+          cardContainer.appendChild(card);
+        }
+      }
+
+      // Function to render the pagination buttons
+      function renderPagination() {
+        // Clear the pagination container
+        paginationContainer.innerHTML = "";
+
+        // Calculate the total number of pages
+        const totalPages = Math.ceil(products.length / itemsPerPage);
+
+        // Create and append pagination buttons
+        for (let i = 1; i <= totalPages; i++) {
+          const button = document.createElement("button");
+          button.textContent = i;
+          button.addEventListener("click", () => {
+            currentPage = i;
+            renderCards(currentPage);
+            updatePaginationButtons();
+          });
+          paginationContainer.appendChild(button);
+        }
+
+        // Update the pagination buttons' active state
+        updatePaginationButtons();
+      }
+
+      // Function to update the active state of the pagination buttons
+      function updatePaginationButtons() {
+        const paginationButtons =
+          document.querySelectorAll(".pagination button");
+        paginationButtons.forEach((button, index) => {
+          if (index + 1 === currentPage) {
+            button.classList.add("active");
+          } else {
+            button.classList.remove("active");
+          }
+        });
+      }
+
+      // Initial state
+      let currentPage = 1;
+
+      // Render the initial set of cards and pagination buttons
+      renderCards(currentPage);
+      renderPagination();
     </script>
   </body>
 </html>
